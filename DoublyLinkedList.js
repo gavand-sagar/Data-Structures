@@ -56,6 +56,10 @@ class LinkedList {
 
     insertAt(index, value) {
 
+        if (index < 0 || index > this.#length) {
+            throw 'Insertin cannot be done on given index = ' + index
+        }
+
         if (this.length() == 0 && index == 0) {
             this.#head = new Point(value, null, null)
             this.#rear = this.#head;
@@ -96,6 +100,10 @@ class LinkedList {
     }
 
     removeAt(index) {
+
+        if (index < 0 || index >= this.#length) {
+            throw 'removeAt cannot be done on given index = ' + index
+        }
 
         if (this.#length == 0) {
             return;
